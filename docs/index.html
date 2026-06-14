@@ -7,6 +7,10 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--gold:#c9a84c;--gold2:#e8c97a;--deep:#0d1f35;--mid:#1a3352;--bg:#0a1628;--sur:#111e30;--sur2:#162540;--bor:#1e3254;--txt:#e8e4dc;--mut:#8a9ab5;--grn:#27ae60;--blu:#2980b9;--red:#c0392b;--sw:258px}
+body.light{--deep:#f0f4ff;--mid:#e0e8f8;--bg:#f8faff;--sur:#ffffff;--sur2:#eef2fb;--bor:#c8d4e8;--txt:#1a2540;--mut:#6070a0;--gold:#b8922a;--gold2:#d4a83c}
+body.light .ni{color:var(--mut)}
+body.light .ni.on{color:var(--gold)}
+body.light input,body.light select,body.light textarea{color:var(--txt);background:var(--sur2)}
 html,body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
 h1,h2,h3,h4{font-family:Georgia,'Times New Roman',serif}
 #app{display:flex;min-height:100vh}
@@ -15,7 +19,7 @@ h1,h2,h3,h4{font-family:Georgia,'Times New Roman',serif}
 .ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:190}
 .ov.on{display:block}
 .slogo{padding:13px 12px;border-bottom:1px solid var(--bor);display:flex;align-items:center;gap:9px}
-.slogo svg{width:38px;height:46px;flex-shrink:0}
+.slogo img{width:44px;height:52px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
 .slogo h2{font-size:.9rem;color:var(--gold);line-height:1.2}
 .slogo p{font-size:.57rem;color:var(--mut);margin-top:2px;line-height:1.4}
 .nsec{padding:4px 0}
@@ -25,27 +29,27 @@ h1,h2,h3,h4{font-family:Georgia,'Times New Roman',serif}
 .ni.on{background:var(--mid);color:var(--gold);border-left-color:var(--gold)}
 .ubadge{margin-top:auto;padding:10px 13px;border-top:1px solid var(--bor);font-size:.74rem}
 .urole{color:var(--gold);font-size:.61rem;letter-spacing:1px;text-transform:uppercase}
-#tb{display:none;align-items:center;justify-content:space-between;padding:9px 12px;background:var(--deep);border-bottom:1px solid var(--bor);position:sticky;top:0;z-index:150}
+#tb{display:none;align-items:center;justify-content:space-between;padding:10px 13px;background:linear-gradient(135deg,var(--deep),var(--mid));border-bottom:1px solid var(--bor);position:sticky;top:0;z-index:150;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 #tb span{font-family:Georgia,serif;color:var(--gold);font-size:.9rem}
 .hbtn{background:none;border:none;color:var(--gold);font-size:1.4rem;cursor:pointer;padding:2px 5px}
-.ph{padding:18px 22px 13px;border-bottom:1px solid var(--bor);background:var(--sur)}
+.ph{padding:18px 22px 13px;border-bottom:1px solid var(--bor);background:linear-gradient(135deg,var(--sur) 0%,var(--sur2) 100%)}
 .ph h2{font-size:1.6rem;color:var(--gold)}
 .ph p{color:var(--mut);font-size:.78rem;margin-top:3px}
 .con{padding:18px 22px}
-.card{background:var(--sur);border:1px solid var(--bor);border-radius:8px;padding:14px;margin-bottom:12px}
+.card{background:var(--sur);border:1px solid var(--bor);border-radius:10px;padding:16px;margin-bottom:13px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:5px}
 .ct{font-size:1rem;color:var(--gold);font-family:Georgia,serif}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.sb{background:var(--sur2);border:1px solid var(--bor);border-radius:8px;padding:12px;text-align:center}
+.sb{background:linear-gradient(135deg,var(--sur2),var(--sur));border:1px solid var(--bor);border-radius:10px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:transform .2s}.sb:hover{transform:translateY(-2px)}
 .sn{font-size:1.8rem;font-family:Georgia,serif;color:var(--gold);font-weight:700}
 .sl{font-size:.66rem;color:var(--mut);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
 .sd{font-size:.67rem;color:var(--grn);margin-top:2px}
 .mc{background:var(--sur2);border:1px solid var(--bor);border-radius:8px;padding:11px;cursor:pointer;transition:all .18s}
 .mc:hover{border-color:var(--gold);transform:translateY(-1px)}
-.av{border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;font-weight:700;color:#fff;flex-shrink:0;overflow:hidden}
-.b{display:inline-block;font-size:.59rem;padding:2px 7px;border-radius:10px;font-weight:600;text-transform:uppercase}
+.av{border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;font-weight:700;color:#fff;flex-shrink:0;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.b{display:inline-block;font-size:.6rem;padding:3px 8px;border-radius:20px;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
 .bf{background:rgba(39,174,96,.15);color:#27ae60;border:1px solid rgba(39,174,96,.3)}
 .ba{background:rgba(192,57,43,.15);color:#e74c3c;border:1px solid rgba(192,57,43,.3)}
 .bg{background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.3)}
@@ -54,25 +58,27 @@ table{width:100%;border-collapse:collapse;font-size:.79rem;min-width:400px}
 th{text-align:left;padding:7px 9px;color:var(--mut);font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;border-bottom:1px solid var(--bor);font-weight:500}
 td{padding:7px 9px;border-bottom:1px solid rgba(30,50,84,.5);color:var(--txt);vertical-align:middle}
 tr:hover td{background:var(--sur2)}
-.btn{display:inline-flex;align-items:center;gap:4px;padding:6px 13px;border-radius:5px;border:none;cursor:pointer;font-family:inherit;font-size:.79rem;font-weight:500;transition:all .18s;text-decoration:none}
-.bp{background:var(--gold);color:var(--deep)}.bp:hover{background:var(--gold2)}
-.bo{background:transparent;color:var(--gold);border:1px solid var(--gold)}.bo:hover{background:rgba(201,168,76,.1)}
-.bd{background:rgba(192,57,43,.2);color:#e74c3c;border:1px solid rgba(192,57,43,.3)}
-.bs{padding:3px 9px;font-size:.72rem}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:7px;border:none;cursor:pointer;font-family:inherit;font-size:.81rem;font-weight:600;transition:all .2s;text-decoration:none;letter-spacing:.2px}
+.bp{background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#0d1f35;box-shadow:0 2px 8px rgba(201,168,76,.35)}.bp:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(201,168,76,.5)}
+.bo{background:transparent;color:var(--gold);border:2px solid var(--gold);box-shadow:0 0 0 0 rgba(201,168,76,0)}.bo:hover{background:rgba(201,168,76,.12);box-shadow:0 0 0 3px rgba(201,168,76,.15)}
+.bg-green{background:linear-gradient(135deg,#27ae60,#2ecc71);color:#fff;box-shadow:0 2px 8px rgba(39,174,96,.35)}.bg-green:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(39,174,96,.5)}
+.bg-blue{background:linear-gradient(135deg,#2980b9,#3498db);color:#fff;box-shadow:0 2px 8px rgba(41,128,185,.35)}.bg-blue:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(41,128,185,.5)}
+.bd{background:rgba(192,57,43,.15);color:#e74c3c;border:1px solid rgba(192,57,43,.4)}.bd:hover{background:rgba(192,57,43,.25)}
+.bs{padding:4px 11px;font-size:.73rem;border-radius:5px}
 .fg{display:flex;flex-direction:column;gap:3px;margin-bottom:9px}
 .fg label{font-size:.68rem;color:var(--mut);letter-spacing:.4px;text-transform:uppercase}
 input,select,textarea{background:var(--sur2);border:1px solid var(--bor);border-radius:5px;padding:7px 9px;color:var(--txt);font-size:.83rem;font-family:inherit;width:100%;outline:none;transition:border-color .18s}
-input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.15);outline:none}
 select option{background:var(--deep)}
 .mo{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:300;display:flex;align-items:center;justify-content:center;padding:12px}
-.md{background:var(--deep);border:1px solid var(--bor);border-radius:10px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto}
+.md{background:var(--deep);border:1px solid var(--bor);border-radius:14px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .mh{padding:13px 17px 10px;border-bottom:1px solid var(--bor);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--deep);z-index:1}
 .mh h3{font-size:1.18rem;color:var(--gold)}
 .mb{padding:17px}
 .mf{padding:10px 17px;border-top:1px solid var(--bor);display:flex;gap:7px;justify-content:flex-end;position:sticky;bottom:0;background:var(--deep)}
 .xb{background:none;border:none;color:var(--mut);font-size:1.3rem;cursor:pointer}
 .lw{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--bg)}
-.lb{background:var(--sur);border:1px solid var(--bor);border-radius:12px;padding:30px 26px;width:100%;max-width:400px}
+.lb{background:var(--sur);border:1px solid var(--bor);border-radius:16px;padding:32px 28px;width:100%;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
 .cb{background:var(--sur2);border:1px solid var(--bor);border-radius:4px;height:6px;overflow:hidden;margin-top:3px}
 .cf{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%}
 .ep{display:flex;gap:8px;padding:8px 10px;border-radius:6px;border:1px solid var(--bor);background:var(--sur2);margin-bottom:6px}
@@ -85,6 +91,7 @@ select option{background:var(--deep)}
 @media(max-width:900px){#sb{transform:translateX(-100%)}#sb.on{transform:translateX(0)}#tb{display:flex}#mn{margin-left:0}.con{padding:12px}.ph{padding:12px 12px 9px}.g3{grid-template-columns:1fr 1fr}.g4{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}table{font-size:.72rem}th,td{padding:5px 6px}.md{max-width:100%}}
 </style>
+<script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script></script>
 </head>
 <body>
 <div class="ov" id="ov" onclick="closeSB()"></div>
@@ -143,6 +150,7 @@ var INITIAL_DATA={
     {id:'U2',username:'admin',password:'admin123',role:'session_clerk',displayName:'Session Clerk'},
     {id:'U3',username:'secre',password:'sec123',role:'secretary',displayName:'Secretary'}
   ],
+  activityLog:[],
   growthHistory:[
     {year:2018,total:120,full:85,new:12},{year:2019,total:138,full:95,new:18},
     {year:2020,total:145,full:98,new:7},{year:2021,total:160,full:108,new:15},
@@ -152,6 +160,34 @@ var INITIAL_DATA={
 };
 function loadDb(){try{var s=localStorage.getItem(SK);if(s){var p=JSON.parse(s);return Object.assign({},INITIAL_DATA,p);}}catch(e){}return JSON.parse(JSON.stringify(INITIAL_DATA));}
 function saveDb(){try{localStorage.setItem(SK,JSON.stringify(db));}catch(e){}}
+
+// ── THEME ──────────────────────────────────────────────────────────────────
+function initTheme(){
+  var t=localStorage.getItem('pcea_theme')||'dark';
+  if(t==='light')document.body.classList.add('light');
+}
+function toggleTheme(){
+  document.body.classList.toggle('light');
+  var t=document.body.classList.contains('light')?'light':'dark';
+  localStorage.setItem('pcea_theme',t);
+  var btn=document.getElementById('theme-btn');
+  if(btn)btn.textContent=t==='light'?'Dark Mode':'Light Mode';
+}
+
+// ── ACTIVITY LOG ──────────────────────────────────────────────────────────
+function logActivity(action,detail){
+  if(!session)return;
+  if(!db.activityLog)db.activityLog=[];
+  db.activityLog.unshift({
+    ts:new Date().toISOString(),
+    user:session.displayName,
+    role:session.role,
+    action:action,
+    detail:detail||''
+  });
+  if(db.activityLog.length>200)db.activityLog=db.activityLog.slice(0,200);
+  saveDb();
+}
 var db=loadDb(),session=null,page='dashboard',modal=null;
 var AC=['#1a3a5c','#2e5c3e','#5c2e1a','#3a1a5c','#1a4a4a','#4a3a1a','#5c1a3a','#1a5c5c'];
 var EC={sunday:'#c9a84c',communion:'#e74c3c',group:'#27ae60',meeting:'#2980b9',special:'#8e44ad'};
@@ -168,6 +204,72 @@ function ageCategory(m){var a=getAge(m);if(a===null)return'Unknown';if(a<=10)ret
 function ageCategoryShort(m){var a=getAge(m);if(a===null)return'-';if(a<=10)return'Sunday School';if(a<=17)return'Bridge';if(a<=35)return'Youth';return'Adult';}
 function avHtml(m,sz){sz=sz||42;return '<div class="av" style="background:'+ac(m.id)+';width:'+sz+'px;height:'+sz+'px;font-size:'+Math.round(sz*0.38)+'px">'+ini(m)+'</div>';}
 
+
+function importMembersExcel(){
+  var inp=document.createElement('input');
+  inp.type='file';
+  inp.accept='.xlsx,.xls,.csv';
+  inp.onchange=function(e){
+    var file=e.target.files[0];if(!file)return;
+    var reader=new FileReader();
+    reader.onload=function(ev){
+      try{
+        var wb=XLSX.read(ev.target.result,{type:'binary'});
+        var ws=wb.Sheets[wb.SheetNames[0]];
+        var rows=XLSX.utils.sheet_to_json(ws,{defval:''});
+        if(!rows.length){alert('No data found in Excel file');return;}
+        
+        var added=0,skipped=0;
+        rows.forEach(function(row){
+          // Accept common column name variations
+          var fn=(row['First Name']||row['FirstName']||row['first_name']||'').toString().trim();
+          var ln=(row['Last Name']||row['LastName']||row['last_name']||'').toString().trim();
+          var nid=(row['National ID']||row['NationalID']||row['national_id']||row['ID']||'').toString().trim();
+          var ct=(row['Contact']||row['Phone']||row['Mobile']||'').toString().trim();
+          var dist=(row['District']||'').toString().trim();
+          var status=(row['Status']||row['Membership']||'').toString().toLowerCase().trim();
+          var bdate=(row['Baptism Date']||row['BaptismDate']||'').toString().trim();
+          var yob=parseInt(row['Year of Birth']||row['YearOfBirth']||row['DOB']||0)||'';
+          var marital=(row['Marital Status']||row['MaritalStatus']||'single').toString().toLowerCase().trim();
+          var father=(row['Father']||row["Father's Name"]||'').toString().trim();
+          var mother=(row['Mother']||row["Mother's Name"]||'').toString().trim();
+          var other=(row['Other Names']||row['OtherNames']||'').toString().trim();
+          
+          if(!fn||!ln){skipped++;return;}
+          
+          // Match district by name
+          var distObj=db.districts.find(function(d){return d.name.toLowerCase().indexOf(dist.toLowerCase())>=0;});
+          var distId=distObj?distObj.id:db.districts[0].id;
+          
+          var isFull=status==='full'||status==='full member';
+          
+          db.members.push({
+            id:gid('M'),firstName:fn,lastName:ln,otherNames:other,
+            nationalId:nid||'KE-'+Math.floor(Math.random()*9000000+1000000),
+            contact:ct,districtId:distId,isFull:isFull,
+            baptismDate:bdate||'',confirmationDate:'',baptismCert:null,
+            fatherName:father,motherName:mother,
+            familyId:gid('FAM'),maritalStatus:marital||'single',
+            spouseMemberId:'',spouseName:'',yearOfBirth:yob,
+            roles:[],communionRecords:[],titheRecords:[],photo:null,
+            joinedYear:bdate?new Date(bdate).getFullYear():new Date().getFullYear()
+          });
+          added++;
+        });
+        
+        saveDb();
+        logActivity('IMPORT','Imported '+added+' members from Excel ('+(skipped?skipped+' skipped':'all added')+')');
+        rerender();
+        alert('Import complete! '+added+' members added'+(skipped?' ('+skipped+' rows skipped - missing name)':'')+'.');
+      }catch(err){
+        alert('Error reading Excel file: '+err.message+'\nMake sure it has columns: First Name, Last Name, Contact, District, Status');
+      }
+    };
+    reader.readAsBinaryString(file);
+  };
+  inp.click();
+}
+
 function render(){
   var app=document.getElementById('app');
   if(!session){app.innerHTML=loginHtml();bindLogin();return;}
@@ -180,7 +282,7 @@ function shell(){
     {s:'Overview',items:[{id:'dashboard',i:'&#9962;',l:'Dashboard'},{id:'calendar',i:'&#128197;',l:'Calendar'}]},
     {s:'Members',items:[{id:'members',i:'&#128101;',l:'Members'},{id:'districts',i:'&#128506;',l:'Districts'},{id:'groups',i:'&#129309;',l:'Groups & Roles'}]},
     {s:'Records',items:[{id:'communion',i:'&#127863;',l:'Holy Communion'},{id:'baptism',i:'&#128167;',l:'Baptism'},{id:'tithe',i:'&#128176;',l:'Tithe Records'}]},
-    {s:'Church',items:[{id:'leadership',i:'&#127963;',l:'Leadership'},{id:'reports',i:'&#128202;',l:'Reports'},{id:'memberreport',i:'&#128424;',l:'Member Report'},{id:'settings',i:'&#128274;',l:'Settings'}]}
+    {s:'Church',items:[{id:'leadership',i:'&#127963;',l:'Leadership'},{id:'reports',i:'&#128202;',l:'Reports'},{id:'memberreport',i:'&#128424;',l:'Member Report'},{id:'settings',i:'&#128274;',l:'Settings'},{id:'activitylog',i:'&#128221;',l:'Activity Log'}]}
   ];
   var nb=nav.map(function(s){
     return '<div class="nsec"><div class="nlbl">'+s.s+'</div>'
@@ -188,31 +290,43 @@ function shell(){
       +'</div>';
   }).join('');
   return '<aside id="sb">'+
-    '<div class="slogo"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><rect x="42" y="8" width="16" height="104" fill="#c9a84c" rx="3"/><rect x="12" y="36" width="76" height="16" fill="#c9a84c" rx="3"/></svg>'+
+    '<div class="slogo"><svg viewBox="0 0 80 95" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))"><polygon points="40,2 75,20 75,65 40,90 5,65 5,20" fill="#1a237e" stroke="#c9a84c" stroke-width="2.5"/><rect x="36" y="12" width="8" height="45" fill="white" rx="1.5"/><rect x="20" y="26" width="40" height="8" fill="white" rx="1.5"/><text x="40" y="72" font-size="7" fill="#c9a84c" text-anchor="middle" font-family="Arial" font-weight="bold">PCEA</text></svg>'+
     '<div><h2>PCEA Ayubu Kinyua</h2><p>Congregation Eldoret<br>Faith - Love - Hope</p></div></div>'+
     nb+
     '<div class="ubadge"><div class="urole">'+esc(session.role.replace('_',' '))+'</div>'+
     '<div style="font-weight:500">'+esc(session.displayName)+'</div>'+
     '<div style="font-size:.61rem;color:var(--grn);margin-top:2px">Data saved locally</div>'+
-    '<button class="btn bo bs" style="margin-top:6px" onclick="signOut()">Sign Out</button></div>'+
+    '<div style="display:flex;gap:5px;margin-top:6px">'+
+    '<button class="btn bo bs" id="theme-btn" onclick="toggleTheme()" style="border-color:var(--mut);color:var(--mut)" style="flex:1">Light Mode</button>'+
+    '<button class="btn bo bs" onclick="signOut()">Out</button>'+
+    '</div></div>'+
     '</aside><main id="mn"></main>';
 }
 function go(p){page=p;closeSB();renderPage();}
 function toggleSB(){document.getElementById('sb').classList.toggle('on');document.getElementById('ov').classList.toggle('on');}
 function closeSB(){var s=document.getElementById('sb');if(s)s.classList.remove('on');var o=document.getElementById('ov');if(o)o.classList.remove('on');}
 function signOut(){session=null;page='dashboard';render();}
-function renderPage(){var el=document.getElementById('pc');if(!el)return;var pages={dashboard:pgDash,calendar:pgCal,members:pgMembers,districts:pgDistricts,groups:pgGroups,communion:pgCommunion,baptism:pgBaptism,tithe:pgTithe,leadership:pgLeadership,reports:pgReports,memberreport:pgMemberReport,settings:pgSettings};el.innerHTML=(pages[page]||pgDash)();if(modal)showModal();}
+function renderPage(){var el=document.getElementById('pc');if(!el)return;var pages={dashboard:pgDash,calendar:pgCal,members:pgMembers,districts:pgDistricts,groups:pgGroups,communion:pgCommunion,baptism:pgBaptism,tithe:pgTithe,leadership:pgLeadership,reports:pgReports,memberreport:pgMemberReport,settings:pgSettings,activitylog:pgActivityLog};el.innerHTML=(pages[page]||pgDash)();if(modal)showModal();}
 function rerender(){renderPage();}
 
 function loginHtml(){
   return '<div class="lw"><div class="lb">'+
-    '<div style="text-align:center;margin-bottom:13px"><svg style="width:60px;height:72px" viewBox="0 0 100 120"><rect x="42" y="8" width="16" height="104" fill="#c9a84c" rx="3"/><rect x="12" y="36" width="76" height="16" fill="#c9a84c" rx="3"/></svg></div>'+
+    '<div style="text-align:center;margin-bottom:13px"><svg viewBox="0 0 80 95" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))"><polygon points="40,2 75,20 75,65 40,90 5,65 5,20" fill="#1a237e" stroke="#c9a84c" stroke-width="2.5"/><rect x="36" y="12" width="8" height="45" fill="white" rx="1.5"/><rect x="20" y="26" width="40" height="8" fill="white" rx="1.5"/><text x="40" y="72" font-size="7" fill="#c9a84c" text-anchor="middle" font-family="Arial" font-weight="bold">PCEA</text></svg></div>'+
     '<h1 style="text-align:center;color:var(--gold);font-size:1.3rem;margin-bottom:2px">PCEA AYUBU KINYUA</h1>'+
     '<p style="text-align:center;color:var(--mut);font-size:.7rem;margin-bottom:20px;letter-spacing:.5px">CONGREGATION ELDORET - Church Management System</p>'+
     '<div id="lerr"></div>'+
     '<div class="fg"><label>Username</label><input id="lu" placeholder="Enter username" autocomplete="username"/></div>'+
-    '<div class="fg"><label>Password</label><input type="password" id="lp" placeholder="Enter password" autocomplete="current-password"/></div>'+
+    '<div class="fg"><label>Password</label><div class="pw-wrap"><input type="password" id="lp" placeholder="Enter password" autocomplete="current-password"/><button class="pw-eye" onclick="togglePw(\'lp\')">Show</button></div></div>'+
     '<button class="btn bp" style="width:100%;justify-content:center;margin-top:4px" onclick="doLogin()">Sign In</button>'+
+    '<div style="margin-top:9px;text-align:center"><button class="btn" style="background:none;color:var(--mut);font-size:.71rem;border:none;cursor:pointer;text-decoration:underline" onclick="showRecovery()">Forgot password?</button></div>'+
+    '<div id="recovery-panel" style="display:none;margin-top:9px;background:var(--sur2);border:1px solid var(--bor);border-radius:6px;padding:10px;font-size:.78rem">'+
+    '<div style="color:var(--gold);margin-bottom:6px;font-weight:500">Password Recovery</div>'+
+    '<p style="color:var(--mut);margin-bottom:8px">Enter your recovery code to reset password:</p>'+
+    '<input id="rec-code" placeholder="Enter recovery code..." style="margin-bottom:7px"/>'+
+    '<input id="rec-newpw" type="password" placeholder="New password (min 4 chars)..." style="margin-bottom:7px"/>'+
+    '<button class="btn bp bs" onclick="doRecovery()">Reset Password</button>'+
+    '<div style="margin-top:7px;font-size:.69rem;color:var(--mut)">Recovery code is set in Settings under each user account.</div>'+
+    '</div>'+
     '<div style="margin-top:12px;padding:9px;background:var(--sur2);border-radius:6px;font-size:.68rem;color:var(--mut)">'+
     '<div style="color:var(--gold);margin-bottom:3px">Default Credentials</div>'+
     '<div>Moderator / Clerk: <strong style="color:var(--txt)">admin / admin123</strong></div>'+
@@ -228,7 +342,12 @@ function bindLogin(){
 function doLogin(){
   var u=document.getElementById('lu').value,p=document.getElementById('lp').value;
   var user=db.users.find(function(x){return x.username===u&&x.password===p;});
-  if(user){session=user;render();}
+  if(user){
+  session=user;
+  render();
+  // log after render so db is loaded
+  logActivity('LOGIN','Signed in successfully');
+}
   else{var el=document.getElementById('lerr');if(el)el.innerHTML='<div style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3);border-radius:5px;padding:7px 10px;color:#e74c3c;font-size:.78rem;margin-bottom:9px">Invalid username or password</div>';}
 }
 function pgDash(){
@@ -256,7 +375,7 @@ function pgDash(){
     return '<div style="display:flex;gap:8px;align-items:center;padding:5px 0;border-bottom:1px solid var(--bor)">'+avHtml(m,28)+
       '<div><div style="font-size:.83rem">'+esc(m.firstName)+' '+esc(m.lastName)+'</div><div style="font-size:.68rem;color:var(--mut)">'+fd(m.baptismDate)+'</div></div></div>';
   }).join('');
-  return '<div class="ph"><div style="display:flex;align-items:center;gap:9px"><svg style="width:30px;height:36px" viewBox="0 0 100 120"><rect x="42" y="8" width="16" height="104" fill="#c9a84c" rx="3"/><rect x="12" y="36" width="76" height="16" fill="#c9a84c" rx="3"/></svg><div><h2>Dashboard</h2><p>'+esc(db.church.name)+' - '+esc(db.church.subtitle)+'</p></div></div></div>'+
+  return '<div class="ph"><div style="display:flex;align-items:center;gap:9px"><svg viewBox="0 0 80 95" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))"><polygon points="40,2 75,20 75,65 40,90 5,65 5,20" fill="#1a237e" stroke="#c9a84c" stroke-width="2.5"/><rect x="36" y="12" width="8" height="45" fill="white" rx="1.5"/><rect x="20" y="26" width="40" height="8" fill="white" rx="1.5"/><text x="40" y="72" font-size="7" fill="#c9a84c" text-anchor="middle" font-family="Arial" font-weight="bold">PCEA</text></svg><div><h2>Dashboard</h2><p>'+esc(db.church.name)+' - '+esc(db.church.subtitle)+'</p></div></div></div>'+
     '<div class="con"><div class="g4" style="margin-bottom:13px">'+
     '<div class="sb"><div class="sn">'+db.members.length+'</div><div class="sl">Total Members</div></div>'+
     '<div class="sb"><div class="sn">'+full+'</div><div class="sl">Full Members</div></div>'+
@@ -297,7 +416,7 @@ function pgCal(){
       +'</div>'+delBtn+'</div>';
   }).join('')||'<p style="color:var(--mut)">No upcoming events.</p>';
   return '<div class="ph"><h2>Church Calendar</h2><p>Activities, Services and Events</p></div>'
-    +'<div class="con">'+(cw()?'<button class="btn bp bs" style="margin-bottom:11px" onclick="openModal(\'addEvent\',null)">+ Add Event</button>':'')
+    +'<div class="con">'+(cw()?'<button class="btn bg-green bs" style="margin-bottom:11px" onclick="openModal(\'addEvent\',null)">+ Add Event</button>':'')
     +'<div class="card"><div class="ch"><span class="ct">Upcoming Events</span></div>'+html+'</div></div>';
 }
 function delEv(btn){var id=btn.getAttribute('data-eid');if(id)delEvent(id);}
@@ -316,7 +435,7 @@ function pgMembers(){
     '<div style="position:relative;flex:1;min-width:155px"><input style="padding-left:28px" id="ms" placeholder="Search..." value="'+esc(_ms)+'" oninput="_ms=this.value;renderMG()"/><span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);color:var(--mut)">?</span></div>'+
     '<select id="mf" style="width:138px" onchange="_mf=this.value;renderMG()"><option value="all">All Members</option><option value="full"'+(_mf==='full'?' selected':'')+'>Full</option><option value="assoc"'+(_mf==='assoc'?' selected':'')+'>Associate</option><option value="ss"'+(_mf==='ss'?' selected':'')+'>Sunday School</option><option value="bridge"'+(_mf==='bridge'?' selected':'')+'>Bridge</option><option value="youth"'+(_mf==='youth'?' selected':'')+'>Youth</option></select>'+
     '<select id="md" style="width:148px" onchange="_md=this.value;renderMG()"><option value="all">All Districts</option>'+dOpts+'</select>'+
-    (cw()?'<button class="btn bp bs" onclick="openModal(\'editMember\',null)">+ Add Member</button>':'')+
+    (cw()?'<button class="btn bg-green bs" onclick="openModal(\'editMember\',null)">+ Add Member</button> <button class="btn bg-blue bs" onclick="importMembersExcel()">&#8679; Import Excel</button>':'')+
     '</div><div class="g3" id="mgrid">'+memberGrid()+'</div></div>';
 }
 function memberGrid(){
@@ -337,6 +456,7 @@ function memberGrid(){
       (m.yearOfBirth?'<span class="b" style="background:rgba(41,128,185,.15);color:#5dade2;border:1px solid rgba(41,128,185,.3)">'+ageCategoryShort(m)+'</span>':'')+
       '</div>'+
       '<div style="font-size:.69rem;color:var(--mut);margin-top:3px">'+esc(m.contact)+' - '+fd(m.baptismDate)+'</div>'+
+      ((m.roles&&m.roles.length)?'<div style="font-size:.68rem;color:var(--gold);margin-top:2px">'+m.roles.slice(0,2).map(function(r){var g=db.groups.find(function(x){return x.id===r.groupId;});return esc(g?g.name:'')+': '+esc(r.role);}).join(' | ')+'</div>':'')+
       (cw()?'<div style="display:flex;gap:4px;margin-top:5px"><button class="btn bo bs" onclick="openModal(\'editMember\',\''+m.id+'\')">Edit</button><button class="btn bd bs" onclick="delMember(\''+m.id+'\')">Del</button></div>':'')+
       '</div>';
   }).join('');
@@ -542,8 +662,8 @@ function pgReports(){
     '<div class="con">'+
     '<div class="card"><div class="ch"><span class="ct">Download Reports</span></div>'+
     '<div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px">'+
-    '<button class="btn bp bs" onclick="dlChurch()">Full Church Report</button>'+
-    '<button class="btn bo bs" onclick="dlCSV()">All Members CSV</button>'+
+    '<button class="btn bp" onclick="dlChurch()">&#128196; Full Church Report</button>'+
+    '<button class="btn bg-blue" onclick="dlCSV()">&#128229; Members CSV</button>'+
     '</div>'+
     '<div style="font-size:.77rem;color:var(--mut);margin-bottom:6px">By District:</div>'+
     '<div style="display:flex;gap:6px;flex-wrap:wrap">'+distBtns+
@@ -661,36 +781,160 @@ function pgMemberReport(){
 }
 function selReport(id){_rm=id;_rq='';rerender();}
 function printMReport(id){
-  var m=db.members.find(function(x){return x.id===id;});if(!m)return;
+  var m=db.members.find(function(x){return x.id===id;});
+  if(!m)return;
   var dist=db.districts.find(function(d){return d.id===m.districtId;});
-  var sp=m.spouseMemberId?(function(){var s=db.members.find(function(x){return x.id===m.spouseMemberId;});return s?s.firstName+' '+s.lastName:'';})():m.spouseName||'';
+  var sp='';
+  if(m.spouseMemberId){var s=db.members.find(function(x){return x.id===m.spouseMemberId;});sp=s?s.firstName+' '+s.lastName:m.spouseName||'-';}
+  else sp=m.spouseName||'-';
   var titheTotal=(m.titheRecords||[]).reduce(function(a,t){return a+t.amount;},0);
   var p=[];
-  p.push('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Report - '+m.firstName+' '+m.lastName+'</title>');
-  p.push('<style>body{font-family:Georgia,serif;max-width:680px;margin:35px auto;color:#111;font-size:13px}.hdr{text-align:center;border-bottom:3px double #1a3a5c;padding-bottom:15px;margin-bottom:20px}h1{font-size:20px;color:#1a3a5c;margin:0}h2{font-size:13px;font-weight:normal;color:#555;margin:5px 0 0}.ch{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:3px}.av{margin:7px auto;width:68px;height:68px;border-radius:50%;background:#1a3a5c;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;color:#fff}.sec{margin-bottom:17px}.sec h3{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#1a3a5c;border-bottom:1px solid #ccc;padding-bottom:3px;margin-bottom:7px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:5px 17px}.item label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#888;display:block}.item p{margin:1px 0 0;font-size:13px;font-weight:600}table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;padding:4px 7px;background:#1a3a5c;color:#fff;font-size:10px;text-transform:uppercase}td{padding:4px 7px;border-bottom:1px solid #eee}tr:nth-child(even)td{background:#f8f8f8}.foot{margin-top:25px;padding-top:9px;border-top:1px solid #ccc;text-align:center;font-size:11px;color:#888}@media print{body{margin:18px}}</style></head><body>');
-  p.push('<div class="hdr"><div class="ch">Presbyterian Church of East Africa (PCEA)</div><div class="ch">Ayubu Kinyua Congregation - Eldoret</div><div class="av">'+ini(m)+'</div>');
-  p.push('<h1>'+m.firstName+' '+(m.otherNames?m.otherNames+' ':'')+m.lastName+'</h1><h2>Member Profile Report</h2>');
-  p.push('<div style="margin-top:7px"><span style="background:'+(m.isFull?'#d4edda':'#f8d7da')+';color:'+(m.isFull?'#155724':'#721c24')+';padding:2px 9px;border-radius:9px;font-size:11px;font-weight:bold">'+(m.isFull?'Full Member':'Associate Member')+'</span></div>');
-  p.push('<div style="font-size:11px;color:#888;margin-top:4px">Generated: '+new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})+'</div></div>');
+  p.push('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Member Report - '+m.firstName+' '+m.lastName+'</title>');
+  p.push('<style>');
+  p.push('body{font-family:Georgia,serif;max-width:700px;margin:30px auto;color:#111;font-size:13px}');
+  p.push('.hdr{text-align:center;border-bottom:3px double #1a3a5c;padding-bottom:15px;margin-bottom:20px}');
+  p.push('h1{font-size:20px;color:#1a3a5c;margin:0}h2{font-size:13px;font-weight:normal;color:#555;margin:5px 0 0}');
+  p.push('.ch{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:3px}');
+  p.push('.av{margin:8px auto;width:70px;height:70px;border-radius:50%;background:#1a3a5c;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;color:#fff}');
+  p.push('.sec{margin-bottom:18px}.sec h3{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#1a3a5c;border-bottom:2px solid #c9a84c;padding-bottom:4px;margin-bottom:9px}');
+  p.push('.grid{display:grid;grid-template-columns:1fr 1fr;gap:5px 18px}');
+  p.push('.item label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#888;display:block}.item p{margin:1px 0 0;font-size:13px;font-weight:600}');
+  p.push('table{width:100%;border-collapse:collapse;font-size:12px}');
+  p.push('th{text-align:left;padding:5px 8px;background:#1a3a5c;color:#fff;font-size:10px;text-transform:uppercase}');
+  p.push('td{padding:5px 8px;border-bottom:1px solid #eee}tr:nth-child(even)td{background:#f8f8f8}');
+  p.push('.role-card{background:#f0f4ff;border:1px solid #1a3a5c;border-radius:6px;padding:9px 12px;margin-bottom:7px;display:flex;justify-content:space-between;align-items:flex-start}');
+  p.push('.role-name{font-size:13px;font-weight:700;color:#1a3a5c}.role-period{font-size:11px;color:#555;margin-top:2px}');
+  p.push('.role-badge{background:#1a3a5c;color:#fff;border-radius:12px;font-size:10px;font-weight:700;padding:3px 10px;text-transform:uppercase;white-space:nowrap}');
+  p.push('.bdg{display:inline-block;padding:2px 9px;border-radius:10px;font-size:11px;font-weight:bold}');
+  p.push('.full{background:#d4edda;color:#155724}.assoc{background:#f8d7da;color:#721c24}');
+  p.push('.no-roles{background:#fff8e1;border:1px solid #f0c040;border-radius:6px;padding:10px;text-align:center;color:#888;font-size:12px}');
+  p.push('.foot{margin-top:25px;padding-top:10px;border-top:1px solid #ccc;text-align:center;font-size:11px;color:#888}');
+  p.push('@media print{body{margin:15px}}</style></head><body>');
+
+  // Header
+  p.push('<div class="hdr">');
+  p.push('<div class="ch">Presbyterian Church of East Africa (PCEA)</div>');
+  p.push('<div class="ch">Ayubu Kinyua Congregation - Eldoret</div>');
+  p.push('<div class="av">'+ini(m)+'</div>');
+  p.push('<h1>'+m.firstName+' '+(m.otherNames?m.otherNames+' ':'')+m.lastName+'</h1>');
+  p.push('<h2>Member Profile Report</h2>');
+  p.push('<div style="margin-top:7px"><span class="bdg '+(m.isFull?'full':'assoc')+'">'+(m.isFull?'Full Member':'Associate Member')+'</span></div>');
+  p.push('<div style="font-size:11px;color:#888;margin-top:4px">Generated: '+new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})+'</div>');
+  p.push('</div>');
+
+  // Personal info
   p.push('<div class="sec"><h3>Personal Information</h3><div class="grid">');
-  [['National ID',m.nationalId],['Contact',m.contact],['District',dist?dist.name:'-'],['Year of Birth',m.yearOfBirth||'-'],['Age Group',ageCategory(m)],['Marital Status',m.maritalStatus||'-'],['Spouse',sp||'-'],['Father',m.fatherName||'-'],['Mother',m.motherName||'-'],['Year Joined',String(m.joinedYear||'-')]].forEach(function(x){p.push('<div class="item"><label>'+x[0]+'</label><p>'+x[1]+'</p></div>');});
+  var fields=[['National ID',m.nationalId||'-'],['Contact',m.contact||'-'],['District',dist?dist.name:'-'],['Year of Birth',m.yearOfBirth?String(m.yearOfBirth):'-'],['Age Group',ageCategory(m)],['Marital Status',m.maritalStatus||'-'],['Spouse',sp],['Father',m.fatherName||'-'],['Mother',m.motherName||'-'],['Year Joined',String(m.joinedYear||'-')]];
+  for(var fi=0;fi<fields.length;fi++){
+    p.push('<div class="item"><label>'+fields[fi][0]+'</label><p>'+fields[fi][1]+'</p></div>');
+  }
   p.push('</div></div>');
-  p.push('<div class="sec"><h3>Baptism and Confirmation</h3><div class="grid"><div class="item"><label>Baptism</label><p>'+fd(m.baptismDate)+'</p></div><div class="item"><label>Confirmation</label><p>'+(m.confirmationDate?fd(m.confirmationDate):'Not yet confirmed')+'</p></div></div></div>');
-  if((m.roles||[]).length){
-    p.push('<div class="sec"><h3>Service and Roles</h3><table><thead><tr><th>Group</th><th>Role</th><th>From</th><th>To</th></tr></thead><tbody>');
-    (m.roles||[]).forEach(function(r){var g=db.groups.find(function(x){return x.id===r.groupId;});p.push('<tr><td>'+(g?g.name:r.groupId)+'</td><td><b>'+r.role+'</b></td><td>'+(r.from?fd(r.from):'-')+'</td><td>'+(r.to?fd(r.to):'Present')+'</td></tr>');});
-    p.push('</tbody></table></div>');
+
+  // Baptism
+  p.push('<div class="sec"><h3>Baptism and Confirmation</h3><div class="grid">');
+  p.push('<div class="item"><label>Baptism Date</label><p>'+fd(m.baptismDate)+'</p></div>');
+  p.push('<div class="item"><label>Confirmation</label><p>'+(m.confirmationDate?fd(m.confirmationDate):'Not yet confirmed')+'</p></div>');
+  p.push('</div></div>');
+
+  // ROLES - most important section
+  var roles=m.roles||[];
+  p.push('<div class="sec"><h3>Service and Roles History ('+(roles.length>0?roles.length+' roles':'None')+')</h3>');
+  if(roles.length>0){
+    for(var ri=0;ri<roles.length;ri++){
+      var r=roles[ri];
+      var grp=db.groups.find(function(x){return x.id===r.groupId;});
+      var grpName=grp?grp.name:r.groupId;
+      var fromTxt=r.from?fd(r.from):'Not recorded';
+      var toTxt=r.to?fd(r.to):'Present (Active)';
+      p.push('<div class="role-card">');
+      p.push('<div><div class="role-name">'+grpName+'</div><div class="role-period">From: '+fromTxt+' &nbsp; To: '+toTxt+'</div></div>');
+      p.push('<div class="role-badge">'+r.role+'</div>');
+      p.push('</div>');
+    }
+  }else{
+    p.push('<div class="no-roles">No roles have been assigned to this member yet.</div>');
   }
-  if((m.communionRecords||[]).length){
-    p.push('<div class="sec"><h3>Holy Communion</h3><table><thead><tr><th>Date</th><th>Service</th></tr></thead><tbody>');
-    m.communionRecords.slice().reverse().slice(0,10).forEach(function(c){p.push('<tr><td>'+fd(c.date)+'</td><td>'+c.service+'</td></tr>');});
-    p.push('</tbody></table><p style="font-size:12px;margin-top:5px;color:#555">Total: <b>'+m.communionRecords.length+'</b></p></div>');
+  p.push('</div>');
+
+  // Communion
+  var comRecs=m.communionRecords||[];
+  if(comRecs.length>0){
+    p.push('<div class="sec"><h3>Holy Communion ('+comRecs.length+' total)</h3>');
+    p.push('<table><thead><tr><th>#</th><th>Date</th><th>Service</th></tr></thead><tbody>');
+    var revCom=comRecs.slice().reverse().slice(0,10);
+    for(var ci=0;ci<revCom.length;ci++){
+      p.push('<tr><td>'+(comRecs.length-ci)+'</td><td>'+fd(revCom[ci].date)+'</td><td>'+revCom[ci].service+'</td></tr>');
+    }
+    p.push('</tbody></table>');
+    if(comRecs.length>10)p.push('<p style="font-size:11px;color:#888;margin-top:5px">Showing last 10 of '+comRecs.length+' records.</p>');
+    p.push('</div>');
   }
+
+  // Tithe
   if(titheTotal>0){
-    p.push('<div class="sec"><h3>Tithe Summary</h3><div style="background:#f0f4ff;border:1px solid #1a3a5c;border-radius:5px;padding:9px 14px;display:inline-block"><b style="font-size:15px;color:#1a3a5c">KES '+titheTotal.toLocaleString()+'</b><br><span style="font-size:11px;color:#888">'+((m.titheRecords||[]).length)+' entries</span></div></div>');
+    p.push('<div class="sec"><h3>Tithe Summary</h3>');
+    p.push('<div style="background:#f0f4ff;border:2px solid #1a3a5c;border-radius:8px;padding:12px 16px;display:inline-block;margin-bottom:10px">');
+    p.push('<div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px">Total Contributions</div>');
+    p.push('<div style="font-size:22px;font-weight:bold;color:#1a3a5c">KES '+titheTotal.toLocaleString()+'</div>');
+    p.push('<div style="font-size:11px;color:#888">'+((m.titheRecords||[]).length)+' entries recorded</div>');
+    p.push('</div>');
+    if((m.titheRecords||[]).length>0){
+      p.push('<table><thead><tr><th>Year</th><th>Month</th><th>Amount (KES)</th></tr></thead><tbody>');
+      var revTithe=(m.titheRecords||[]).slice().reverse();
+      for(var ti3=0;ti3<revTithe.length;ti3++){
+        p.push('<tr><td>'+revTithe[ti3].year+'</td><td>'+revTithe[ti3].month+'</td><td>'+revTithe[ti3].amount.toLocaleString()+'</td></tr>');
+      }
+      p.push('</tbody></table>');
+    }
+    p.push('</div>');
   }
-  p.push('<div class="foot"><p>PCEA Ayubu Kinyua Congregation - Eldoret | Faith - Love - Hope</p><p>Printed on '+new Date().toLocaleDateString()+'</p></div></body></html>');
-  var w=window.open('','_blank');if(!w){alert('Allow pop-ups.');return;}w.document.write(p.join(''));w.document.close();w.focus();setTimeout(function(){w.print();},500);
+
+  p.push('<div class="foot"><p>PCEA Ayubu Kinyua Congregation - Eldoret | Faith - Love - Hope</p><p>Printed on '+new Date().toLocaleDateString()+'</p></div>');
+  p.push('</body></html>');
+
+  var w=window.open('','_blank');
+  if(!w){alert('Allow pop-ups to print.');return;}
+  w.document.write(p.join(''));
+  w.document.close();
+  w.focus();
+  setTimeout(function(){w.print();},500);
+}
+
+
+function pgActivityLog(){
+  if(!session||session.role!=='moderator'){
+    return '<div class="ph"><h2>Activity Log</h2></div><div class="con"><div class="card"><p style="color:var(--mut)">Admin (Moderator) access only.</p></div></div>';
+  }
+  var logs=db.activityLog||[];
+  var rows=logs.map(function(l){
+    var d=new Date(l.ts);
+    var dateStr=d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+    var timeStr=d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+    var colors={LOGIN:'var(--grn)',MEMBER:'var(--gold)',IMPORT:'var(--blu)',LOGOUT:'var(--mut)'};
+    var col=colors[l.action]||'var(--mut)';
+    return '<tr>'+
+      '<td style="color:var(--mut);font-size:.76rem;white-space:nowrap">'+dateStr+' '+timeStr+'</td>'+
+      '<td><strong>'+esc(l.user)+'</strong><br><span style="font-size:.7rem;color:var(--mut)">'+esc(l.role.replace('_',' '))+'</span></td>'+
+      '<td><span class="b" style="background:'+col+'22;color:'+col+';border:1px solid '+col+'44">'+esc(l.action)+'</span></td>'+
+      '<td style="font-size:.78rem">'+esc(l.detail)+'</td>'+
+      '</tr>';
+  }).join('');
+  return '<div class="ph"><h2>Activity Log</h2><p>All system activity - Admin only</p></div>'+
+    '<div class="con">'+
+    '<div style="display:flex;gap:7px;margin-bottom:11px">'+
+    '<button class="btn bd bs" onclick="clearActivityLog()">Clear Log</button>'+
+    '<span style="font-size:.78rem;color:var(--mut);align-self:center">'+logs.length+' entries</span>'+
+    '</div>'+
+    (logs.length?
+    '<div class="card"><div class="tw"><table><thead><tr><th>Date & Time</th><th>User</th><th>Action</th><th>Detail</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>':
+    '<div class="card"><p style="color:var(--mut)">No activity recorded yet.</p></div>')+
+    '</div>';
+}
+function clearActivityLog(){
+  if(!confirm('Clear all activity log entries?'))return;
+  db.activityLog=[];
+  saveDb();
+  rerender();
 }
 
 function pgSettings(){
@@ -704,9 +948,10 @@ function pgSettings(){
     db.users.map(function(u,i){
       return '<div style="background:var(--sur2);border:1px solid var(--bor);border-radius:6px;padding:11px;margin-bottom:8px">'+
         '<div style="display:flex;gap:5px;align-items:center;margin-bottom:7px"><span class="b bg" style="text-transform:capitalize">'+esc(u.role.replace('_',' '))+'</span><span style="font-weight:500;font-size:.83rem">'+esc(u.displayName)+'</span></div>'+
-        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">'+
-        '<div class="fg"><label>Username</label><input id="un'+i+'" value="'+esc(u.username)+'" autocomplete="off"/></div>'+
-        '<div class="fg"><label>New Password</label><input type="password" id="up'+i+'" value="'+esc(u.password)+'" autocomplete="new-password"/></div>'+
+        '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px">'+
+        '<div class="fg"><label>Username</label><input id="un'+i+'" value="'+esc(u.username)+'" autocomplete="off" style="letter-spacing:1px"/></div>'+
+        '<div class="fg"><label>New Password</label><div class="pw-wrap"><input type="password" id="up'+i+'" placeholder="Enter new password" autocomplete="new-password"/><button class="pw-eye" onclick="togglePw(\'up'+i+'\')">Show</button></div></div>'+
+        '<div class="fg"><label>Recovery Code (for password reset)</label><input id="ur'+i+'" value="'+(u.recoveryCode||'')+'" placeholder="Set a recovery code..." autocomplete="off"/></div>'+
         '</div></div>';
     }).join('')+
     '<button class="btn bp bs" onclick="saveUsers()">Save Credentials</button></div>'+
@@ -715,7 +960,7 @@ function pgSettings(){
     '<button class="btn bd bs" onclick="resetData()">Reset to Default Data</button></div></div>';
 }
 function saveChurch(){db.church.name=document.getElementById('scn').value||db.church.name;db.church.subtitle=document.getElementById('scs').value||db.church.subtitle;saveDb();alert('Saved!');}
-function saveUsers(){db.users.forEach(function(u,i){var n=document.getElementById('un'+i).value;var p=document.getElementById('up'+i).value;if(n)u.username=n;if(p&&p.length>=4)u.password=p;});saveDb();alert('Saved!');}
+function saveUsers(){db.users.forEach(function(u,i){var n=document.getElementById('un'+i).value;var p=document.getElementById('up'+i).value;var r=document.getElementById('ur'+i).value.trim();if(n)u.username=n;if(p&&p.length>=4)u.password=p;if(r)u.recoveryCode=r;});saveDb();alert('Saved!');}
 function resetData(){if(!confirm('Reset ALL data? Cannot be undone.'))return;localStorage.removeItem(SK);location.reload();}
 function openModal(type,data){modal={type:type,data:data};showModal();}
 function closeModal(){modal=null;var el=document.getElementById('mwrap');if(el)el.remove();}
@@ -732,40 +977,165 @@ function mH(t){return '<div class="mh"><h3>'+t+'</h3><button class="xb" onclick=
 function mF(b){return '<div class="mf">'+b+'</div>';}
 
 function mDetail(id){
-  var m=db.members.find(function(x){return x.id===id;});if(!m)return '';
+  var m=db.members.find(function(x){return x.id===id;});
+  if(!m)return '';
   var dist=db.districts.find(function(d){return d.id===m.districtId;});
   var fam=db.members.filter(function(x){return x.familyId===m.familyId&&x.id!==m.id;});
-  var sp=m.spouseMemberId?(function(){var s=db.members.find(function(x){return x.id===m.spouseMemberId;});return s?'<span style="color:var(--gold)">'+esc(s.firstName)+' '+esc(s.lastName)+'</span> (member)':esc(m.spouseName||'-');})():esc(m.spouseName||'-');
-  return '<div class="md">'+mH(esc(m.firstName)+' '+(m.otherNames?esc(m.otherNames)+' ':'')+esc(m.lastName))+
-    '<div class="mb">'+
-    '<div style="display:flex;gap:13px;align-items:flex-start;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--bor)">'+
-    '<div class="av" style="background:'+ac(m.id)+';width:68px;height:68px;font-size:1.45rem;border:3px solid var(--gold)">'+ini(m)+'</div>'+
-    '<div style="flex:1"><div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px"><span class="b '+(m.isFull?'bf':'ba')+'">'+(m.isFull?'Full Member':'Associate')+'</span><span class="b bg">'+esc(dist?dist.name:'-')+'</span></div>'+
-    '<div style="color:var(--mut);font-size:.78rem">'+esc(m.nationalId)+'</div><div style="color:var(--mut);font-size:.78rem">'+esc(m.contact)+'</div></div></div>'+
-    '<div class="tabs"><div class="tab on" onclick="swTab(event,\'ti\')">Info</div><div class="tab" onclick="swTab(event,\'tf\')">Family</div><div class="tab" onclick="swTab(event,\'tc\')">Communion</div><div class="tab" onclick="swTab(event,\'tr\')">Roles</div></div>'+
-    '<div id="ti"><div style="display:grid;grid-template-columns:1fr 1fr;gap:7px 13px">'+
-    [['National ID',m.nationalId],['Contact',m.contact],['District',dist?dist.name:'-'],['Status',m.isFull?'Full Member':'Associate'],['Year of Birth',m.yearOfBirth||'-'],['Age Group',ageCategory(m)],['Marital',m.maritalStatus||'-'],['Spouse',null],['Baptism',fd(m.baptismDate)],['Confirmation',m.confirmationDate?fd(m.confirmationDate):'Not yet confirmed']].map(function(x){
-      return '<div><div style="font-size:.62rem;color:var(--mut);text-transform:uppercase">'+x[0]+'</div><div style="font-size:.84rem;margin-top:2px">'+(x[0]==='Spouse'?sp:esc(x[1]||'-'))+'</div></div>';
-    }).join('')+'</div></div>'+
-    '<div id="tf" style="display:none"><div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px">'+
-    '<div><div style="font-size:.62rem;color:var(--mut);text-transform:uppercase">Father</div><div style="font-size:.84rem">'+esc(m.fatherName||'-')+'</div></div>'+
-    '<div><div style="font-size:.62rem;color:var(--mut);text-transform:uppercase">Mother</div><div style="font-size:.84rem">'+esc(m.motherName||'-')+'</div></div></div>'+
-    (fam.length?fam.map(function(f){return '<div style="display:flex;gap:7px;align-items:center;padding:4px 0;border-bottom:1px solid var(--bor)">'+avHtml(f,24)+'<span style="flex:1">'+esc(f.firstName)+' '+esc(f.lastName)+'</span><span class="b '+(f.isFull?'bf':'ba')+'">'+(f.isFull?'Full':'Assoc.')+'</span></div>';}).join(''):'<p style="color:var(--mut);font-size:.78rem">No linked family members.</p>')+
-    '</div>'+
-    '<div id="tc" style="display:none"><div style="margin-bottom:8px;color:var(--mut);font-size:.79rem">Total: <strong style="color:var(--gold);font-size:1.6rem;font-family:Georgia,serif">'+(m.communionRecords||[]).length+'</strong></div>'+
-    (m.isFull?((m.communionRecords||[]).length?'<div class="tw"><table><thead><tr><th>#</th><th>Date</th><th>Service</th></tr></thead><tbody>'+m.communionRecords.slice().reverse().map(function(r,i){return '<tr><td style="color:var(--mut)">'+(m.communionRecords.length-i)+'</td><td>'+fd(r.date)+'</td><td>'+esc(r.service)+'</td></tr>';}).join('')+'</tbody></table></div>':'<p style="color:var(--mut)">No records.</p>'):'<p style="color:var(--mut)">Full members only.</p>')+
-    '</div>'+
-    '<div id="tr" style="display:none">'+
-    ((m.roles||[]).length?'<div class="tw"><table><thead><tr><th>Group</th><th>Role</th><th>From</th><th>To</th></tr></thead><tbody>'+
-    (m.roles||[]).map(function(r){var g=db.groups.find(function(x){return x.id===r.groupId;});return '<tr><td>'+esc(g?g.name:r.groupId)+'</td><td><span class="b bg">'+esc(r.role)+'</span></td><td style="color:var(--mut)">'+(r.from?fd(r.from):'-')+'</td><td style="color:var(--mut)">'+(r.to?fd(r.to):'Present')+'</td></tr>';}).join('')+
-    '</tbody></table></div>':'<p style="color:var(--mut)">No roles assigned.</p>')+
-    '</div></div>'+
-    mF((cw()?'<button class="btn bo bs" onclick="closeModal();openModal(\'editMember\',\''+m.id+'\')">Edit</button>':'')+
-    '<button class="btn bo" onclick="closeModal()">Close</button>')+
-    '</div>';
+  var roles=m.roles||[];
+  var comRecs=m.communionRecords||[];
+  var titheRecs=m.titheRecords||[];
+  var titheTotal=titheRecs.reduce(function(a,t){return a+t.amount;},0);
+
+  // Spouse
+  var spouseHtml='-';
+  if(m.spouseMemberId){
+    var spObj=db.members.find(function(x){return x.id===m.spouseMemberId;});
+    if(spObj)spouseHtml='<strong style="color:var(--gold)">'+esc(spObj.firstName)+' '+esc(spObj.lastName)+'</strong> <span class="b bf">Member</span>';
+    else spouseHtml=esc(m.spouseName||'-');
+  }else if(m.spouseName){
+    spouseHtml=esc(m.spouseName);
+  }
+
+  // ROLES section - built separately for clarity
+  var rolesHtml='';
+  if(roles.length>0){
+    var roleCards='';
+    for(var ri=0;ri<roles.length;ri++){
+      var r=roles[ri];
+      var grp=db.groups.find(function(x){return x.id===r.groupId;});
+      var grpName=grp?grp.name:r.groupId;
+      var fromTxt=r.from?fd(r.from):'Not specified';
+      var toTxt=r.to?fd(r.to):'<span style="color:#27ae60;font-weight:600">Present</span>';
+      roleCards+='<div style="background:var(--sur2);border:1px solid var(--bor);border-radius:8px;padding:10px 12px;margin-bottom:7px">'
+        +'<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:5px">'
+        +'<div><div style="font-size:.88rem;font-weight:700;color:var(--txt)">'+esc(grpName)+'</div>'
+        +'<div style="font-size:.7rem;color:var(--mut);margin-top:2px">From: <strong style="color:var(--txt)">'+fromTxt+'</strong> &nbsp;To: <strong style="color:var(--txt)">'+toTxt+'</strong></div>'
+        +'</div>'
+        +'<span style="background:linear-gradient(135deg,rgba(201,168,76,.25),rgba(201,168,76,.1));color:var(--gold);border:1px solid rgba(201,168,76,.4);border-radius:20px;font-size:.7rem;font-weight:700;padding:3px 10px;white-space:nowrap">'+esc(r.role)+'</span>'
+        +'</div></div>';
+    }
+    rolesHtml='<div style="padding-top:13px;margin-top:13px;border-top:2px solid var(--bor)">'
+      +'<div style="display:flex;align-items:center;gap:7px;margin-bottom:10px">'
+      +'<span style="background:linear-gradient(135deg,#8e44ad,#9b59b6);color:#fff;border-radius:20px;font-size:.65rem;font-weight:700;padding:3px 10px">'+roles.length+' ROLE'+(roles.length>1?'S':'')+'</span>'
+      +'<span style="font-size:.75rem;color:var(--mut)">Service history</span>'
+      +'</div>'+roleCards+'</div>';
+  }else{
+    rolesHtml='<div style="padding-top:13px;margin-top:13px;border-top:1px solid var(--bor);padding:10px;background:var(--sur2);border-radius:8px;text-align:center;color:var(--mut);font-size:.8rem">No roles assigned yet.</div>';
+  }
+
+  // INFO tab
+  var infoFields=[
+    ['National ID',m.nationalId||'-'],
+    ['Contact',m.contact||'-'],
+    ['District',dist?dist.name:'-'],
+    ['Membership',m.isFull?'Full Member':'Associate'],
+    ['Year of Birth',m.yearOfBirth?String(m.yearOfBirth):'-'],
+    ['Age Group',ageCategory(m)],
+    ['Marital Status',m.maritalStatus||'-'],
+    ['Baptism',fd(m.baptismDate)],
+    ['Confirmation',m.confirmationDate?fd(m.confirmationDate):'Not yet confirmed']
+  ];
+  var infoGrid='';
+  for(var fi=0;fi<infoFields.length;fi++){
+    infoGrid+='<div style="padding:6px 0;border-bottom:1px solid rgba(30,50,84,.3)">'
+      +'<div style="font-size:.61rem;color:var(--mut);text-transform:uppercase;letter-spacing:1px">'+infoFields[fi][0]+'</div>'
+      +'<div style="font-size:.84rem;margin-top:2px;font-weight:500">'+infoFields[fi][1]+'</div></div>';
+  }
+  // Spouse row
+  infoGrid+='<div style="padding:6px 0;border-bottom:1px solid rgba(30,50,84,.3)">'
+    +'<div style="font-size:.61rem;color:var(--mut);text-transform:uppercase;letter-spacing:1px">Spouse</div>'
+    +'<div style="font-size:.84rem;margin-top:2px;font-weight:500">'+spouseHtml+'</div></div>';
+
+  var infoTab='<div id="ti"><div style="display:grid;grid-template-columns:1fr 1fr;gap:3px 12px">'+infoGrid+'</div>'+rolesHtml+'</div>';
+
+  // FAMILY tab
+  var famContent='';
+  famContent+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px">'
+    +'<div><div style="font-size:.61rem;color:var(--mut);text-transform:uppercase">Father</div><div style="font-size:.84rem;font-weight:500">'+esc(m.fatherName||'-')+'</div></div>'
+    +'<div><div style="font-size:.61rem;color:var(--mut);text-transform:uppercase">Mother</div><div style="font-size:.84rem;font-weight:500">'+esc(m.motherName||'-')+'</div></div>'
+    +'</div>';
+  if(fam.length>0){
+    famContent+='<div style="font-size:.62rem;color:var(--mut);text-transform:uppercase;margin-bottom:7px">Family Members</div>';
+    for(var fmi=0;fmi<fam.length;fmi++){
+      var f=fam[fmi];
+      famContent+='<div style="display:flex;gap:7px;align-items:center;padding:5px 0;border-bottom:1px solid var(--bor)">'+avHtml(f,24)
+        +'<span style="flex:1">'+esc(f.firstName)+' '+esc(f.lastName)+'</span>'
+        +'<span class="b '+(f.isFull?'bf':'ba')+'">'+(f.isFull?'Full':'Assoc.')+'</span></div>';
+    }
+  }else{
+    famContent+='<p style="color:var(--mut);font-size:.78rem">No linked family members.</p>';
+  }
+  var famTab='<div id="tf" style="display:none">'+famContent+'</div>';
+
+  // COMMUNION tab
+  var comContent='<div style="margin-bottom:10px">Total: <strong style="color:var(--gold);font-size:1.7rem;font-family:Georgia,serif">'+comRecs.length+'</strong></div>';
+  if(!m.isFull){
+    comContent+='<p style="color:var(--mut)">Full members only.</p>';
+  }else if(comRecs.length>0){
+    comContent+='<div class="tw"><table><thead><tr><th>#</th><th>Date</th><th>Service</th></tr></thead><tbody>';
+    var revCom=comRecs.slice().reverse();
+    for(var ci=0;ci<revCom.length;ci++){
+      comContent+='<tr><td style="color:var(--mut)">'+(comRecs.length-ci)+'</td><td>'+fd(revCom[ci].date)+'</td><td>'+esc(revCom[ci].service)+'</td></tr>';
+    }
+    comContent+='</tbody></table></div>';
+  }else{
+    comContent+='<p style="color:var(--mut)">No records yet.</p>';
+  }
+  var comTab='<div id="tc" style="display:none">'+comContent+'</div>';
+
+  // TITHE tab
+  var titheContent='<div style="margin-bottom:10px">Total: <strong style="color:var(--gold);font-size:1.5rem;font-family:Georgia,serif">KES '+titheTotal.toLocaleString()+'</strong></div>';
+  if(titheRecs.length>0){
+    titheContent+='<div class="tw"><table><thead><tr><th>Year</th><th>Month</th><th>Amount (KES)</th></tr></thead><tbody>';
+    var revTithe=titheRecs.slice().reverse();
+    for(var ti2=0;ti2<revTithe.length;ti2++){
+      titheContent+='<tr><td style="color:var(--mut)">'+revTithe[ti2].year+'</td><td>'+esc(revTithe[ti2].month)+'</td><td><strong style="color:var(--gold)">'+revTithe[ti2].amount.toLocaleString()+'</strong></td></tr>';
+    }
+    titheContent+='</tbody></table></div>';
+  }else{
+    titheContent+='<p style="color:var(--mut)">No tithe records.</p>';
+  }
+  var titheTab='<div id="tth" style="display:none">'+titheContent+'</div>';
+
+  // Header badges
+  var badges='<span class="b '+(m.isFull?'bf':'ba')+'" style="font-size:.66rem;padding:3px 9px">'+(m.isFull?'Full Member':'Associate')+'</span> ';
+  badges+='<span class="b bg" style="font-size:.66rem;padding:3px 9px">'+esc(dist?dist.name:'-')+'</span> ';
+  if(m.yearOfBirth)badges+='<span class="b" style="background:rgba(41,128,185,.15);color:#5dade2;border:1px solid rgba(41,128,185,.3);font-size:.66rem;padding:3px 9px">'+ageCategoryShort(m)+'</span> ';
+  if(roles.length>0)badges+='<span class="b" style="background:rgba(142,68,173,.2);color:#9b59b6;border:1px solid rgba(142,68,173,.4);font-size:.66rem;padding:3px 9px">'+roles.length+' Role'+(roles.length>1?'s':'')+'</span>';
+
+  var html='<div class="md">'
+    +mH(esc(m.firstName)+' '+(m.otherNames?esc(m.otherNames)+' ':'')+esc(m.lastName))
+    +'<div class="mb">'
+    // Avatar + quick stats
+    +'<div style="display:flex;gap:13px;align-items:flex-start;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--bor)">'
+    +'<div class="av" style="background:'+ac(m.id)+';width:72px;height:72px;font-size:1.5rem;border:3px solid var(--gold)">'+ini(m)+'</div>'
+    +'<div style="flex:1"><div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:5px">'+badges+'</div>'
+    +'<div style="color:var(--mut);font-size:.78rem;margin-top:3px">'+esc(m.nationalId)+'</div>'
+    +'<div style="color:var(--mut);font-size:.78rem">'+esc(m.contact)+'</div>'
+    +'</div></div>'
+    // Tabs
+    +'<div class="tabs">'
+    +'<div class="tab on" onclick="swTab(event,\'ti\')">Info & Roles</div>'
+    +'<div class="tab" onclick="swTab(event,\'tf\')">Family</div>'
+    +'<div class="tab" onclick="swTab(event,\'tc\')">Communion ('+comRecs.length+')</div>'
+    +'<div class="tab" onclick="swTab(event,\'tth\')">Tithe (KES '+titheTotal.toLocaleString()+')</div>'
+    +'</div>'
+    +infoTab+famTab+comTab+titheTab
+    +'</div>'
+    +mF(
+      (cw()?'<button class="btn bo bs" onclick="closeModal();openModal('editMember',''+m.id+'')">Edit</button>':'')
+      +(cw()?'<button class="btn bp bs" onclick="printMReport(''+m.id+'')">Print Report</button>':'')
+      +'<button class="btn bo" onclick="closeModal()">Close</button>'
+    )
+    +'</div>';
+  return html;
 }
+
+function editFromDetail(btn){var id=btn.getAttribute('data-mid');closeModal();openModal('editMember',id);}
+function printFromDetail(btn){var id=btn.getAttribute('data-mid');printMReport(id);}
+
 function swTab(e,id){
-  ['ti','tf','tc','tr'].forEach(function(t){var el=document.getElementById(t);if(el)el.style.display=t===id?'':'none';});
+  ['ti','tf','tc','tr','tth'].forEach(function(t){var el=document.getElementById(t);if(el)el.style.display=t===id?'':'none';});
   e.target.closest('.tabs').querySelectorAll('.tab').forEach(function(t){t.classList.remove('on');});
   e.target.classList.add('on');
 }
@@ -801,6 +1171,31 @@ function mEditMember(id){
     '</div>'+
     mF('<button class="btn bo" onclick="closeModal()">Cancel</button><button class="btn bp" onclick="saveMember(\''+(id||'')+'\')">'+( m?'Update':'Save')+'</button>')+
     '</div>';
+}
+
+function showRecovery(){
+  var p=document.getElementById('recovery-panel');
+  if(p)p.style.display=p.style.display==='none'?'block':'none';
+}
+function doRecovery(){
+  var code=(document.getElementById('rec-code').value||'').trim();
+  var newpw=(document.getElementById('rec-newpw').value||'').trim();
+  if(!code||!newpw){alert('Enter both recovery code and new password');return;}
+  if(newpw.length<4){alert('Password must be at least 4 characters');return;}
+  var user=db.users.find(function(u){return u.recoveryCode&&u.recoveryCode===code;});
+  if(!user){alert('Invalid recovery code. Check your Settings > User Accounts section.');return;}
+  user.password=newpw;
+  saveDb();
+  alert('Password reset for: '+user.displayName+'!\nYou can now sign in with your new password.');
+  var p=document.getElementById('recovery-panel');if(p)p.style.display='none';
+}
+
+function togglePw(id){
+  var inp=document.getElementById(id);
+  if(!inp)return;
+  var btn=inp.nextElementSibling;
+  if(inp.type==='password'){inp.type='text';if(btn)btn.textContent='Hide';}
+  else{inp.type='password';if(btn)btn.textContent='Show';}
 }
 function chkSpouse(){
   var val=(document.getElementById('esp').value||'').trim().toLowerCase();
@@ -838,7 +1233,8 @@ function saveMember(id){
   };
   if(id&&id!=='null'){var mx=db.members.find(function(x){return x.id===id;});if(mx)Object.assign(mx,data);}
   else{db.members.push(Object.assign({},data,{id:gid('M'),familyId:data.familyId||gid('FAM'),communionRecords:[],roles:[],titheRecords:[],baptismCert:null,photo:null,joinedYear:data.baptismDate?new Date(data.baptismDate).getFullYear():new Date().getFullYear()}));}
-  saveDb();closeModal();rerender();
+  logActivity('MEMBER','Saved member: '+data.firstName+' '+data.lastName);
+  saveDb();closeModal();rerender();;
 }
 
 function mDistDetail(id){
@@ -1023,11 +1419,8 @@ function mEditDeacon(idx){
     '<div class="fg"><label>District *</label><select id="edd">'+db.districts.map(function(d){return '<option value="'+d.id+'"'+(e&&e.districtId===d.id?' selected':'')+'>'+esc(d.name)+'</option>';}).join('')+'</select></div>'+
     '<div class="fg"><label>Role *</label><input id="edr" value="'+esc(e?e.role:'')+'" placeholder="e.g. Welfare and Visitation"/></div>'+
     '<div class="fg"><label>Date Appointed</label><input type="date" id="eds" value="'+(e?e.since||'':'')+'"/></div>'+
-    '</div>'+mF('<button class="btn bo" onclick="closeModal()">Cancel</button><button class="btn bp" onclick="saveDeacon(\''+idx+'\')">Save</button>')+'</div>';
-}
-function saveDeacon(idx){var mv=document.getElementById('edm').value,did=document.getElementById('edd').value,role=document.getElementById('edr').value.trim();if(!mv||!did||!role){alert('All fields required');return;}var parts=mv.split('|');var entry={memberId:parts[0],name:parts[1],districtId:did,role:role,since:document.getElementById('eds').value||''};if(idx!==null&&idx!=='null')db.leadership.deacons[parseInt(idx)]=entry;else db.leadership.deacons.push(entry);saveDb();closeModal();rerender();}
-
-render();
-</script>
-</body>
-</html>
+    '</div>'+mF(
+      (cw()?'<button class="btn bo bs" data-mid="'+m.id+'" onclick="editFromDetail(this)">Edit</button>':'')
+      +(cw()?'<button class="btn bp bs" data-mid="'+m.id+'" onclick="printFromDetail(this)">Print Report</button>':'')
+      +'<button class="btn bo" onclick="closeModal()">Close</button>'
+    )
